@@ -17,8 +17,8 @@ int main(){
 
     if(qtd <= 0){
         printf("Quantidade invalida.\n");
-        return 1;
-    }
+        return 1; 
+    
     int v[qtd];
     int valor;
 
