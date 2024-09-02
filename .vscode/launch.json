@@ -24,7 +24,7 @@
             ]
         },
         {
-            "name": "(gdb) Launch",
+            "name": "buscabinaria.c,
             "type": "cppdbg",
             "request": "launch",
             "program": "enter program name, for example ${workspaceFolder}/a.out",
