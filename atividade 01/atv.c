@@ -2,12 +2,12 @@
 
 void ordenacao(int v[], int qtd, int valor) {
     int i = qtd - 1;
-    
+
     while (i >= 0 && v[i] > valor) {
         v[i + 1] = v[i];
         i--;
     }
-    // Inserir o valor na posição correta
+    
     v[i + 1] = valor;
 }
 
