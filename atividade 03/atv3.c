@@ -11,9 +11,9 @@ void imprimirMatriz(int mat[][QTD_COLUNAS],int lin,int col);
 int lerDentrodaMatriz(int min, int max);
 
 int contarImpares(int mat [][QTD_COLUNAS],int lin, int col);
-void verificarElento(int mat [][QTD_COLUNAS],int lin, int col,int elemento);
-void somatorio(int mat [][QTD_COLUNAS],int lin, int col);
-void mediaMatriz(int mat [][QTD_COLUNAS],int lin, int col);
+void verificarElemento(int mat [][QTD_COLUNAS],int lin, int col,int elemento);
+int somatorio(int mat [][QTD_COLUNAS],int lin, int col);
+float mediaMatriz(int mat [][QTD_COLUNAS],int lin, int col);
 void mediaporLinha(int mat [][QTD_COLUNAS],int lin, int col);
 
 int main(){
@@ -29,5 +29,23 @@ int main(){
     preencherMatrizAleatoria(matriz,qtdLinhas,qtdColunas);
     printf("\n-----------------------\n");
     imprimirMatriz(matriz,qtdLinhas,qtdColunas);
+
+
+    int qtdImpares = contarImpares(matriz,qtdLinhas,qtdColunas);
+    printf("Quantidade de impares é : %d\n",qtdImpares);
+
+    int elemento;
+    printf("Digite o elemento para realizar a sua busca :");
+    scanf("%d",&elemento);
+    verificarElemento(matriz,qtdLinhas,qtdColunas,elemento);
+
+    int soma = somatorio(matriz,qtdLinhas,qtdColunas);
+    float media = mediaMatriz(matriz,qtdLinhas,qtdColunas);
+
+    printf("Somatorio dos elementos : %d\n",soma);
+    printf("Media dos elementos : %.2f\n",media);
+
+    mediaporLinha(matriz,qtdLinhas,qtdColunas);
+
     return 0;
 }
