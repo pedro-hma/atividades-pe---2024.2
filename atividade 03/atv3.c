@@ -17,5 +17,17 @@ void mediaMatriz(int mat [][QTD_COLUNAS],int lin, int col);
 void mediaporLinha(int mat [][QTD_COLUNAS],int lin, int col);
 
 int main(){
-    
+    int qtdLinhas, qtdColunas;
+    int matriz[QTD_LINHAS][QTD_COLUNAS];
+
+    srand(time(0));
+    printf("Digite a quantidade de linhas (1-%d)",QTD_LINHAS);
+    qtdLinhas = lerDentroDoIntervalo(1,QTD_LINHAS);
+    printf("Digite a quantidade de linhas (1-%d)",QTD_COLUNAS);
+    qtdColunas = lerDentroDoIntervalo(1,QTD_COLUNAS);
+
+    preencherMatrizAleatoria(matriz,qtdLinhas,qtdColunas);
+    printf("\n-----------------------\n");
+    imprimirMatriz(matriz,qtdLinhas,qtdColunas);
+    return 0;
 }
