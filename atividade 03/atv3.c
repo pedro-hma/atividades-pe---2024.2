@@ -101,6 +101,7 @@ void verificarElemento(int mat [][QTD_COLUNAS],int lin, int col,int elemento){
             }
         }
     }
+    printf("Elemento não encontrado.\n");
 }
 int somatorio(int mat [][QTD_COLUNAS],int lin, int col){
     int soma = 0;
@@ -123,5 +124,20 @@ double mediaMatriz(int mat [][QTD_COLUNAS],int lin, int col){
         return somatorio/totalElementos;
     }else{
         return 0;
+    }
+}
+void mediaporLinha(int mat [][QTD_COLUNAS],int lin, int col){
+    for(int i = 0; i < lin;i++){
+        double somatorio = 0;
+
+        for(int j = 0; j < col;j++){
+            somatorio += mat[i][j];
+        }
+        double mediaPorLinha = 0;
+        if(col > 0){
+            mediaPorLinha - somatorio/col;
+        } else{
+            return 0;
+        }
     }
 }
