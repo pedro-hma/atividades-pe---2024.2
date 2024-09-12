@@ -19,33 +19,68 @@ void mediaporLinha(int mat [][QTD_COLUNAS],int lin, int col);
 int main(){
     int qtdLinhas, qtdColunas;
     int matriz[QTD_LINHAS][QTD_COLUNAS];
+    int opcao;
 
     srand(time(0));
-    printf("Digite a quantidade de linhas (1-%d)",QTD_LINHAS);
-    qtdLinhas = lerDentroDoIntervalo(1,QTD_LINHAS);
-    printf("Digite a quantidade de linhas (1-%d)",QTD_COLUNAS);
-    qtdColunas = lerDentroDoIntervalo(1,QTD_COLUNAS);
+     do {
+        printf("\nMenu:\n");
+        printf("1. Preencher matriz com valores aleatorios.\n");
+        printf("2. Imprimir matriz : \n");
+        printf("3. Contar impares : \n");
+        printf("4. Consultar elemento : \n");
+        printf("5.Calcular Somatorio: \n");
+        printf("6. Calcular Media da Matriz\n:");
+        printf("7. Calcular a Media da Linha\n");
+        printf("8. Sair\n");
+        printf("Escolha uma das opções: ");
+        scanf(" %c", &opcao);
 
-    preencherMatrizAleatoria(matriz,qtdLinhas,qtdColunas);
-    printf("\n-----------------------\n");
-    imprimirMatriz(matriz,qtdLinhas,qtdColunas);
+        switch (opcao) {
+            case '1':
+                printf("Digite a quantidade de linha (1 - %d): ",QTD_LINHAS);
+                qtdLinhas = lerDentroDoIntervalo(1,qtdLinhas);
+                 printf("Digite a quantidade de colunas (1 - %d): ",QTD_COLUNAS);
+                qtdLinhas = lerDentroDoIntervalo(1,qtdLinhas);
+                preencherMatrizAleatoria(matriz,qtdLinhas,qtdColunas);
+                printf("Matriz Preenchida com valores aleatorios\n");
+                break;
+            case '2':
+                imprimirMatriz(matriz,qtdLinhas,qtdColunas);
+                break;
 
+            case '3':
+                printf("Quantidade de impares è %d\n: ",contarImpares(matriz,qtdLinhas,qtdColunas));
+                break;
 
-    int qtdImpares = contarImpares(matriz,qtdLinhas,qtdColunas);
-    printf("Quantidade de impares é : %d\n",qtdImpares);
+           case '4':
+           {
+            int elemento;
+                printf("Digite o valor do elemento para ser buscar\n");
+                scanf("%d",&elemento);
+                verificarElemento(matriz,qtdLinhas,qtdColunas,elemento);            
+           }
+           break;
+            case '5':
+                printf("Somatorio do valores da matriz: %d\n",somatorio(matriz,qtdLinhas,qtdColunas));
+                break;
 
-    int elemento;
-    printf("Digite o elemento para realizar a sua busca :");
-    scanf("%d",&elemento);
-    verificarElemento(matriz,qtdLinhas,qtdColunas,elemento);
+            case 6:
+                printf("Média dos elementos: %.2f\n", mediaMatriz(matriz, qtdLinhas, qtdColunas));
+                break;
 
-    int soma = somatorio(matriz,qtdLinhas,qtdColunas);
-    double media = mediaMatriz(matriz,qtdLinhas,qtdColunas);
+            case 7:
+                mediaPorLinha(matriz, qtdLinhas, qtdColunas);
+                break;
 
-    printf("Somatorio dos elementos : %d\n",soma);
-    printf("Media dos elementos : %.2f\n",media);
+            case 8:
+                printf("Saindo...\n");
+                break;
 
-    mediaporLinha(matriz,qtdLinhas,qtdColunas);
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+
+    } while (opcao != 8);
 
     return 0;
 }
@@ -135,9 +170,10 @@ void mediaporLinha(int mat [][QTD_COLUNAS],int lin, int col){
         }
         double mediaPorLinha = 0;
         if(col > 0){
-            mediaPorLinha - somatorio/col;
+            mediaPorLinha = somatorio/col;
         } else{
             return 0;
         }
+        printf("A média da linha %d: %.2f\n",i + 1,mediaPorLinha);
     }
 }
