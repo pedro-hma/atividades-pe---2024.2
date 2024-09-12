@@ -13,7 +13,7 @@ int lerDentrodaMatriz(int min, int max);
 int contarImpares(int mat [][QTD_COLUNAS],int lin, int col);
 void verificarElemento(int mat [][QTD_COLUNAS],int lin, int col,int elemento);
 int somatorio(int mat [][QTD_COLUNAS],int lin, int col);
-float mediaMatriz(int mat [][QTD_COLUNAS],int lin, int col);
+double mediaMatriz(int mat [][QTD_COLUNAS],int lin, int col);
 void mediaporLinha(int mat [][QTD_COLUNAS],int lin, int col);
 
 int main(){
@@ -40,7 +40,7 @@ int main(){
     verificarElemento(matriz,qtdLinhas,qtdColunas,elemento);
 
     int soma = somatorio(matriz,qtdLinhas,qtdColunas);
-    float media = mediaMatriz(matriz,qtdLinhas,qtdColunas);
+    double media = mediaMatriz(matriz,qtdLinhas,qtdColunas);
 
     printf("Somatorio dos elementos : %d\n",soma);
     printf("Media dos elementos : %.2f\n",media);
@@ -91,4 +91,37 @@ int contarImpares(int mat [][QTD_COLUNAS],int lin, int col){
         }
     }
     return contador;
+}
+void verificarElemento(int mat [][QTD_COLUNAS],int lin, int col,int elemento){
+    for( int i = 0; i < lin;i++){
+        for(int j = 0; j < col;j++){
+            if(mat[i][j == elemento]){
+                printf("O elemento %d foi encontrado na linha %d e coluna %d.\n",elemento,i+1);
+                return;
+            }
+        }
+    }
+}
+int somatorio(int mat [][QTD_COLUNAS],int lin, int col){
+    int soma = 0;
+    for(int i = 0; i < lin; i++){
+        for(int j = 0; j < col;j++){
+            soma += mat [i][j];
+        }
+    }
+    return soma;
+}
+double mediaMatriz(int mat [][QTD_COLUNAS],int lin, int col){
+    double somatorio = 0;
+    int totalElementos = lin * col;
+    for(int i = 0; i < lin;i++){
+        for(int j = 0; j < col;j++){
+            somatorio+= mat[i][j];
+        }
+    }
+    if(totalElementos > 0){
+        return somatorio/totalElementos;
+    }else{
+        return 0;
+    }
 }
