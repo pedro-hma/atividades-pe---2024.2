@@ -6,7 +6,7 @@
 # define QTD_LINHAS 100
 # define QTD_COLUNAS 100
 
-void lerMatriz(int mat [][QTD_COLUNAS],int lin, int col);
+//void lerMatriz(int mat [][QTD_COLUNAS],int lin, int col);
 void imprimirMatriz(int mat[][QTD_COLUNAS],int lin,int col);
 int lerDentrodaMatriz(int min, int max);
 
@@ -49,15 +49,15 @@ int main(){
 
     return 0;
 }
-void lerMatriz(int mat[][QTD_COLUNAS],int lin,int col){
-    for (int i = 0; i < lin; ++i) {
-        for (int j = 0; j < col; ++j) {
-            printf("Digite mat[%d][%d]: ", i, j);
-            scanf("%d", &mat[i][j]);
-        }
-    }
+//void lerMatriz(int mat[][QTD_COLUNAS],int lin,int col){
+  //  for (int i = 0; i < lin; ++i) {
+    //    for (int j = 0; j < col; ++j) {
+      //      printf("Digite mat[%d][%d]: ", i, j);
+        //    scanf("%d", &mat[i][j]);
+       // }
+    //}
 
-}
+//}
 void preencherMatrizAleatoria(int mat[][QTD_COLUNAS],int lin,int col){
     for(int i = 0; i < lin;i++){
         for(int j = 0; j < col;j++){
@@ -80,4 +80,15 @@ int lerDentroDoIntervalo(int min, int max){
         printf("Valor invalido! Digite valor entre %d e %d",min,max);
     }
     return valor;
+}
+int contarImpares(int mat [][QTD_COLUNAS],int lin, int col){
+    int contador = 0;
+    for(int i = 0; i < lin; i++){
+        for(int j = 0; j < col;j++){
+            if(mat[i][j] % 2 != 0){
+                contador++;
+            }
+        }
+    }
+    return contador;
 }
